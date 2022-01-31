@@ -19,14 +19,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setLoginToHomeActivity() {
         binding.apply {
-            val email = inputEmail.text.toString()
-            val password = inputPassword.text.toString()
             btnLogin.setOnClickListener{
+                val email = inputEmail.text.toString()
+                val password = inputPassword.text.toString()
+
                 if (email.isEmpty() || password.isEmpty()){
                     Toast.makeText(this@LoginActivity,"Email atau Password Kosong!!",Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }else if(email == "user" || password == "user"){
-                    startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+                    val intent = Intent(this@LoginActivity,HomeActivity::class.java)
+                    startActivity(intent)
                 }
 
                 finish()
